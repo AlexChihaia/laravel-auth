@@ -14,18 +14,22 @@
                     <p>Status: {{ $project->status }}</p>
                     <p>Main used coding language: {{ $project->language }}</p>
                 </div>
-                <div>
-                    <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-sm btn-success mx-2 ">View
+                <div class="row justify-content-center">
+
+                    <a href="{{ route('admin.projects.show', $project->slug) }}"
+                        class="btn btn-sm btn-success mx-2 w-25 ">View
                         Detail</a>
+
+
+                    <a href="{{ route('admin.projects.edit', $project->slug) }}"
+                        class="btn btn-sm btn-warning mx-2 w-25">Edit</a>
+
+                    <form class="my-2" action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-sm btn-danger mx-2" type="submit" value="Delete">
+                    </form>
                 </div>
-                <div>
-                    <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-sm btn-warning mx-2">Edit</a>
-                </div>
-                <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input class="btn btn-sm btn-danger mx-2" type="submit" value="Delete">
-                </form>
             </li>
         @endforeach
     </ul>
