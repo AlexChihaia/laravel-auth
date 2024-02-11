@@ -2,6 +2,11 @@
 
 
 @section('content')
+    <div class="text-center my-3">
+        <span class="mx-2 btn btn-primary">
+            <a href="{{ route('admin.projects.create') }}" class="text-white">Create a new project</a>
+        </span>
+    </div>
     <ul class="d-flex flex-wrap">
         @foreach ($projects as $project)
             <li class="card col-3 mx-5 my-3 text-center">
